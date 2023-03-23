@@ -2,34 +2,6 @@
   "_id": "panes",
   "locked": false,
   "panes": {
-    "chart": {
-      "id": "chart",
-      "name": "",
-      "type": "chart",
-      "markets": [
-        "BINANCE_FUTURES:btcusd_perp",
-        "BITFINEX:BTCUSD",
-        "BITMEX:XBTUSD",
-        "BYBIT:BTCUSD",
-        "COINBASE:BTC-USD",
-        "DERIBIT:BTC-PERPETUAL",
-        "BINANCE:btcusdt",
-        "BINANCE_FUTURES:btcusdt",
-        "BINANCE:btcbusd",
-        "BINANCE_FUTURES:btcbusd",
-        "BITGET:BTCUSDT",
-        "BITGET:BTCUSDT_UMCBL",
-        "BITFINEX:BTCUST",
-        "BITFINEX:BTCF0:USTF0",
-        "BITMEX:XBTUSDT",
-        "BYBIT:BTCUSDT",
-        "COINBASE:BTC-USDT",
-        "BITSTAMP:btcusd",
-        "KRAKEN:PI_XBTUSD",
-        "OKEX:BTC-USD-SWAP",
-        "OKEX:BTC-USDT-SWAP"
-      ]
-    },
     "trades": {
       "id": "trades",
       "name": "",

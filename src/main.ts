@@ -33,7 +33,7 @@ Vue.component('presets', Presets)
 Vue.directive('autofocus', autofocus)
 
 new Vue({
-  el: '#app',
+  el: '#aggr',
   store,
   render: h => h(App)
 })

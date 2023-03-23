@@ -6,6 +6,7 @@
     "serve": "vue-cli-service serve",
     "prod": "vue-cli-service build --dest ./temp && rm -rf ./dist && mv ./temp ./dist",
     "build": "vue-cli-service build",
+    "build-lib": "vue-cli-service build --target wc-async --name aggr-ts --inline-vue",
     "lint": "vue-cli-service lint",
     "deploy": "node scripts/gh-pages-deploy.js"
   },

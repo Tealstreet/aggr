@@ -29,7 +29,7 @@
         @mousedown.native.stop
         @touchstart.native.stop
       >
-        <button
+        <!-- <button
           class="dropdown-item dropdown-item--space-between"
           @click="addPane('chart')"
         >
@@ -38,7 +38,7 @@
             <div class="dropdown-item__subtitle">Live Chart</div>
           </div>
           <i class="icon-plus" />
-        </button>
+        </button> -->
         <button
           class="dropdown-item dropdown-item--space-between"
           @click="addPane('trades')"
@@ -152,7 +152,7 @@
           :class="{ 'icon-volume-high': audioVolume > 1 }"
         ></i>
       </button>
-      <button
+      <!-- <button
         type="button"
         class="dropdown-item dropdown-item--space-between"
         @click="toggleFullscreen"
@@ -162,7 +162,7 @@
           v-text="isFullscreen ? 'Exit' : 'Go Fullscreen'"
         ></span>
         <i class="icon-enlarge"></i>
-      </button>
+      </button> -->
       <button
         type="button"
         class="dropdown-item dropdown-item--space-between"
@@ -299,6 +299,7 @@ export default class extends Vue {
   }
 
   addPane(type: PaneType) {
+    if (type === 'chart') return
     this.$store.dispatch('panes/addPane', { type })
   }
 
