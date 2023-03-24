@@ -140,19 +140,19 @@
       ],
       "thresholds": [
         {
-          "buyColor": "rgba(119, 148, 92, 0.25)",
+          "buyColor": "rgba(6, 137, 178, 0.5)",
           "sellColor": "rgba(239, 67, 82, 0.25)"
         },
         {
-          "buyColor": "rgb(100, 157, 102)",
+          "buyColor": "rgba(6, 137, 178, 0.6)",
           "sellColor": "rgb(239, 67, 82)"
         },
         {
-          "buyColor": "rgb(59, 202, 109)",
+          "buyColor": "rgba(6, 137, 178, 0.7)",
           "sellColor": "rgb(235, 30, 47)"
         },
         {
-          "buyColor": "rgb(0, 255, 127)",
+          "buyColor": "rgba(6, 137, 178, 1)",
           "sellColor": "rgb(217, 31, 28)"
         }
       ]

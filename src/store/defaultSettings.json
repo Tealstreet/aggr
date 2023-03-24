@@ -8,7 +8,7 @@
   "theme": "dark",
   "backgroundColor": "rgb(23,27,41)",
   "textColor": "",
-  "buyColor": "rgb(100, 157, 102)",
+  "buyColor": "rgba(6, 137, 178)",
   "sellColor": "rgb(239, 67, 82)",
   "timezoneOffset": 0,
   "useAudio": false,
