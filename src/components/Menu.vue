@@ -69,7 +69,7 @@
           </div>
           <i class="icon-plus" />
         </button>
-        <button
+        <!-- <button
           class="dropdown-item dropdown-item--space-between"
           @click="addPane('website')"
         >
@@ -78,7 +78,7 @@
             <div class="dropdown-item__subtitle">Embed website</div>
           </div>
           <i class="icon-plus" />
-        </button>
+        </button> -->
         <button
           class="dropdown-item dropdown-item--space-between"
           @click="addPane('stats')"
