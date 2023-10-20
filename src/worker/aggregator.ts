@@ -263,6 +263,7 @@ class Aggregator {
         const aggTrade = this.onGoingAggregations[tradeKey]
 
         if (
+          settings.aggregationLength > 0 &&
           aggTrade.timestamp + settings.aggregationLength > trade.timestamp &&
           aggTrade.side === trade.side
         ) {
@@ -758,9 +759,8 @@ class Aggregator {
     { exchangeId, forceFetch }: { exchangeId: string; forceFetch?: boolean },
     trackingId
   ) {
-    const productsData = await getExchangeById(exchangeId).getProducts(
-      forceFetch
-    )
+    const productsData =
+      await getExchangeById(exchangeId).getProducts(forceFetch)
 
     ctx.postMessage({
       op: 'fetchExchangeProducts',
@@ -802,9 +802,39 @@ class Aggregator {
     settings[key] = value
 
     if (key === 'aggregationLength') {
+      const signChange = (this.baseAggregationTimeout || 1) * (value || 1) < 0
       this.baseAggregationTimeout = value
       // update trades event handler (if 0 mean simple trade emit else group inc trades)
       this.bindTradesEvent()
+
+      if (signChange) {
+        const channel = value === -1 ? 'raw' : 'aggregated'
+        const targetExchanges = []
+        exchanges.forEach(exchange => {
+          if (
+            (exchange.id === 'BINANCE' || exchange.id === 'BINANCE_FUTURES') &&
+            exchange.apis.length
+          ) {
+            targetExchanges.push(exchange.id)
+            exchange.apis.forEach(api => api.close())
+          }
+        })
+
+        if (targetExchanges.length) {
+          ctx.postMessage({
+            op: 'notice',
+            data: {
+              title: `Switching to → ${channel} trade data${targetExchanges
+                .map(
+                  exchangeId =>
+                    `<div class="d-flex mt4"><i class="icon-${exchangeId} -center mr4"></i> ${exchangeId}</div>`
+                )
+                .join('')}`,
+              html: true
+            }
+          })
+        }
+      }
     }
   }
 
@@ -827,4 +857,4 @@ self.addEventListener('message', (event: any) => {
   }
 })
 
-export default null
+export default Aggregator
