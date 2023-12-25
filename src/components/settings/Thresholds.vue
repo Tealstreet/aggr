@@ -185,6 +185,7 @@ import { Threshold } from '@/store/panesSettings/trades'
 import ThresholdDropdown from './ThresholdDropdown.vue'
 import ThresholdPresetDialog from '@/components/trades/ThresholdPresetDialog.vue'
 import defaultTresholds from '@/store/defaultThresholds.json'
+import defaultTresholds2 from '@/store/defaultThresholds2.json'
 
 import merge from 'lodash.merge'
 import { Preset } from '@/types/types'
@@ -586,7 +587,11 @@ export default class extends Vue {
     let presetData = preset ? preset.data : null
 
     const defaultSettings = JSON.parse(
-      JSON.stringify(defaultTresholds[this.type])
+      JSON.stringify(
+        window.location.href.includes('aggr2')
+          ? defaultTresholds2[this.type]
+          : defaultTresholds[this.type]
+      )
     ) as Threshold[]
 
     let updateThresholdsColors = null

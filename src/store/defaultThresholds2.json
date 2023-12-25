@@ -1,0 +1,78 @@
+{
+  "liquidations": [
+    {
+      "id": "liquidation_threshold",
+      "amount": 5000,
+      "buyColor": "rgba(236,64,122,0.5)",
+      "sellColor": "rgba(255,152,0,0.5)",
+      "buyAudio": "var srqtR = Math.min(1, gain / 4)\nplay(329.63, srqtR, srqtR*2,0,,,'sine')\nplay(329.63, srqtR, srqtR*4,0.08,,,'sine')",
+      "sellAudio": "var srqtR = Math.min(1, gain / 6)\nplay(440, srqtR, srqtR*2,0,,,'sine')\nplay(440, srqtR, srqtR*4,0.08,,,'sine')"
+    },
+    {
+      "id": "liquidation_significant",
+      "amount": 10000,
+      "buyColor": "rgba(236,64,122,0.6)",
+      "sellColor": "rgba(255,152,0,0.7)",
+      "buyAudio": "var srqtR = Math.min(1, gain / 4)\nplay(329.63, srqtR, srqtR*4,0,,,'sine')\nplay(329.63, srqtR, srqtR*6,0.08,,,'sine')",
+      "sellAudio": "var srqtR = Math.min(1, gain / 6)\nplay(440, srqtR, srqtR*4,0,,,'sine')\nplay(440, srqtR, srqtR*6,0.08,,,'sine')"
+    },
+    {
+      "id": "liquidation_huge",
+      "amount": 20000,
+      "buyGif": "flying money",
+      "sellGif": "flying money",
+      "buyColor": "rgba(236,64,122,0.7)",
+      "sellColor": "rgba(255,152,0,0.8)",
+      "buyAudio": "var srqtR = Math.min(1, gain / 4)\nplay(329.63, srqtR, srqtR*4,0,,,'sine')\nplay(329.63, srqtR, srqtR*8,0.08,,,'sine')",
+      "sellAudio": "var srqtR = Math.min(1, gain / 6)\nplay(440, srqtR, srqtR*4,0,,,'sine')\nplay(440, srqtR, srqtR*8,0.08,,,'sine')"
+    },
+    {
+      "id": "liquidation_rare",
+      "amount": 100000,
+      "buyGif": "explosion",
+      "sellGif": "explosion",
+      "buyColor": "rgb(156,39,176)",
+      "sellColor": "rgb(255,235,59)",
+      "buyAudio": "var srqtR = Math.min(1, gain / 10)\nplay(329.63, srqtR, 1,0,,,'sine')\nplay(329.63, srqtR, srqtR*10,0.08,,,'sine')",
+      "sellAudio": "var srqtR = Math.min(1, gain / 10)\nplay(440, srqtR, 1,0,,,'sine')\nplay(440, srqtR, srqtR*10,0.08,,,'sine')"
+    }
+  ],
+  "thresholds": [
+    {
+      "id": "threshold",
+      "amount": 5000,
+      "buyColor": "rgba(4,84,109,0.5)",
+      "sellColor": "rgba(177,76,73,0.5)",
+      "buyAudio": "play(659.26, gain / 10, 0.1 + gain / 7)",
+      "sellAudio": "play(493.88, gain * 1.5 / 10, 0.1 + gain / 7)"
+    },
+    {
+      "id": "significant",
+      "amount": 25000,
+      "buyColor": "rgba(6,137,178,0.8)",
+      "sellColor": "rgba(250,107,103,0.8)",
+      "buyAudio": "play(659.26, 0.05 + gain / 10, 0.2 + ratio * 0.23,0,,0); play(830.6, 0.05 + gain / 10, 0.2 + ratio * 0.23, 0.08,,0)",
+      "sellAudio": "play(493.88, 0.05 + gain * 1.5 / 10, 0.2 + ratio * 0.23,0,,0); play(392, 0.05 + gain * 1.5 / 10, 0.2 + ratio * 0.23, 0.08,,0)"
+    },
+    {
+      "id": "huge",
+      "amount": 100000,
+      "buyGif": "cash bullish",
+      "sellGif": "cash bearish",
+      "buyColor": "rgba(6,137,178,1)",
+      "sellColor": "rgba(250,107,103,1)",
+      "buyAudio": "play(659.26, 0.05 + gain / 25, 0.1 + ratio * 0.23, 0,,0); play(830.6, 0.05 + gain / 25, 0.1 + ratio * 0.23, 0.08,,0); play(987.76, 0.05 + gain / 25, 0.1 + ratio * 0.23, 0.16,,0); play(1318.52, 0.05 + gain / 10, 0.1 + ratio * 0.23, 0.24,,0)",
+      "sellAudio": "play(493.88, 0.05 + gain / 25, 0.1 + ratio * 0.23, 0,,0); play(369.99, 0.05 + gain * 1.5 / 10, 0.2, 0.08,,0); play(293.66, 0.05 + gain * 1.5 / 10, 0.2, 0.16,,0); play(246.94, 0.05 + gain * 1.5 / 10, 0.1 + ratio * 0.23, 0.24,,0)"
+    },
+    {
+      "id": "rare",
+      "amount": 1000000,
+      "buyGif": "explosion",
+      "sellGif": "explosion",
+      "buyColor": "rgba(128,174,200,1)",
+      "sellColor": "rgba(251,158,156,1)",
+      "buyAudio": "play(659.26, 0.05 + gain / 25, 0.1 + ratio * 0.13, 0,,0); play(830.6, 0.05 + gain / 25, 0.1 + ratio * 0.13, 0.08,,0); play(987.76, 0.05 + gain / 25, 0.1 + ratio * 0.13, 0.16,,0); play(1318.52, 0.05 + gain / 10, 0.1 + ratio * 0.13, 0.24,,0)",
+      "sellAudio": "play(493.88, 0.05 + gain / 25, 0.1 + ratio * 0.13, 0,,0); play(369.99, 0.05 + gain * 1.5 / 10, 0.2, 0.08,,0); play(293.66, 0.05 + gain * 1.5 / 10, 0.2, 0.16,,0); play(246.94, 0.05 + gain * 1.5 / 10, 0.1 + ratio * 0.13, 0.24,,0)"
+    }
+  ]
+}

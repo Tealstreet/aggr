@@ -30,7 +30,7 @@
         "OKEX:BTC-USDT-SWAP"
       ],
       "settings": {
-        "showLiquidations": false
+        "showLiquidations": true
       }
     },
     "liquidations": {

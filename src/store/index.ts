@@ -79,8 +79,43 @@ export async function boot(workspace?: Workspace, pairsFromURL?: string[]) {
 
   let marketsOverride
 
-  if (pairsFromURL) {
-    marketsOverride = await resolvePairs(pairsFromURL)
+  const params = new Proxy(new URLSearchParams(window.location.search), {
+    get: (searchParams, prop) => searchParams.get(prop as string)
+  })
+
+  console.log('params', params)
+  console.log(
+    'markets',
+    (params as unknown as { [key: string]: string }).markets
+  )
+
+  if ((params as unknown as { [key: string]: string }).markets) {
+    //marketsOverride = await resolvePairs((params as any).markets)
+    marketsOverride = (params as any).markets.split(',')
+  } else {
+    marketsOverride = [
+      'BINANCE_FUTURES:btcusd_perp',
+      'BITFINEX:BTCUSD',
+      'BITMEX:XBTUSD',
+      'BYBIT:BTCUSD',
+      'COINBASE:BTC-USD',
+      'DERIBIT:BTC-PERPETUAL',
+      'BINANCE:btcusdt',
+      'BINANCE_FUTURES:btcusdt',
+      'BINANCE:btcbusd',
+      'BINANCE_FUTURES:btcbusd',
+      'BITGET:BTCUSDT',
+      'BITGET:BTCUSDT_UMCBL',
+      'BITFINEX:BTCUST',
+      'BITFINEX:BTCF0:USTF0',
+      'BITMEX:XBTUSDT',
+      'BYBIT:BTCUSDT',
+      'COINBASE:BTC-USDT',
+      'BITSTAMP:btcusd',
+      'KRAKEN:PI_XBTUSD',
+      'OKEX:BTC-USD-SWAP',
+      'OKEX:BTC-USDT-SWAP'
+    ]
   }
 
   await store.dispatch('panes/refreshMarketsListeners', {

@@ -6,6 +6,7 @@ import { formatMarketPrice } from '@/services/productsService'
 import { ModulesState } from '..'
 import { getLogShade, joinRgba, splitColorCode } from '@/utils/colors'
 import defaultTresholds from '@/store/defaultThresholds.json'
+import defaultTresholds2 from '@/store/defaultThresholds2.json'
 
 export interface Threshold {
   id: string
@@ -85,7 +86,9 @@ const actions = {
       (state.thresholds.length === 1 &&
         typeof state.thresholds[0].id === 'undefined')
     ) {
-      state.thresholds = defaultTresholds.thresholds
+      state.thresholds = window.location.href.includes('aggr2')
+        ? defaultTresholds2.thresholds
+        : defaultTresholds.thresholds
     }
 
     if (
@@ -93,7 +96,9 @@ const actions = {
       (state.liquidations.length === 1 &&
         typeof state.liquidations[0].id === 'undefined')
     ) {
-      state.liquidations = defaultTresholds.liquidations
+      state.liquidations = window.location.href.includes('aggr2')
+        ? defaultTresholds2.liquidations
+        : defaultTresholds.liquidations
     }
   },
   updateThreshold(

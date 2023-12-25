@@ -438,19 +438,20 @@ export default class extends Mixins(PaneMixin) {
   }
 
   prepareMarkets() {
-    this.paneMarkets = this.$store.state.panes.panes[
-      this.paneId
-    ].markets.reduce((output, marketKey) => {
-      const [exchange] = marketKey.split(':')
+    this.paneMarkets = ['BINANCE_FUTURES:ethusd_perp'].reduce(
+      (output, marketKey) => {
+        const [exchange] = marketKey.split(':')
 
-      if (!this.$store.state.app.activeExchanges[exchange]) {
-        output[marketKey] = false
+        if (!this.$store.state.app.activeExchanges[exchange]) {
+          output[marketKey] = false
+          return output
+        }
+
+        output[marketKey] = true
         return output
-      }
-
-      output[marketKey] = true
-      return output
-    }, {})
+      },
+      {}
+    )
   }
 
   async prepareAudio(prepareSounds = true) {

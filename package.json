@@ -3,7 +3,7 @@
   "version": "3.3.1",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "serve": "cross-env NODE_OPTIONS=--openssl-legacy-provider vue-cli-service serve",
     "prod": "vue-cli-service build --dest ./temp && rm -rf ./dist && mv ./temp ./dist",
     "build": "vue-cli-service build",
     "build-lib": "vue-cli-service build --target wc-async --name aggr-ts --inline-vue",
@@ -15,6 +15,7 @@
     "ace-builds": "^1.13.1",
     "axios": "^0.21.1",
     "color-fns": "^0.1.1",
+    "cross-env": "^7.0.3",
     "eventemitter3": "^4.0.7",
     "idb": "^6.0.0",
     "lightweight-charts": "git+https://github.com/Tucsky/lightweight-charts.git",

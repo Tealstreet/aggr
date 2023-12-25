@@ -298,6 +298,8 @@ class WorkspacesService {
       ).split('/')
     }
 
+    urlWorkspaceId = urlWorkspaceId.split('?')[0]
+
     if (urlWorkspaceId) {
       // try get workspace from id in the url
       workspace = await this.getWorkspace(urlWorkspaceId)
@@ -361,9 +363,14 @@ class WorkspacesService {
     this.workspace = workspace
 
     if (this.urlStrategy === 'hash') {
-      location.hash = this.workspace.id
+      location.hash =
+        this.workspace.id + '?' + location.search.replace(/^\?+/g, '')
     } else {
-      window.history.replaceState('Object', 'Title', '/' + this.workspace.id)
+      window.history.replaceState(
+        'Object',
+        'Title',
+        '/' + this.workspace.id + '?' + location.search.replace(/^\?+/g, '')
+      )
     }
 
     localStorage.setItem('workspace', this.workspace.id)
